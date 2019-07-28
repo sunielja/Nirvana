@@ -1,0 +1,34 @@
+
+  <input type="text" placeholder="Enter Name" [(ngModel)] = "title">
+  <select (change)="selectType($event)">
+    <option >Select Type</option>
+    <option value="Movie">Movie</option>
+    <option value="Series">Series</option>
+    <option value="Episode">Episode</option>
+  </select>
+  <input type="text" placeholder="Enter Year" [(ngModel)] = "year">
+  <button (click)="searchMovie()">Search</button>
+  <br>
+  <br>
+  <br>
+
+
+    <div *ngIf = "!test">
+<div *ngIf = "movie">
+  <div *ngFor = "let m of movie.Search">
+    <span (click)="getDetails()"><img [src] = "m.Poster"></span>
+    <h1>{{m.Title}}</h1>
+    <h1>{{m.Year}}</h1>
+</div>
+</div>
+</div>
+
+<div *ngIf = "test">
+  <div *ngFor = "let m of movie.Search">
+  <h3>Title: {{m.Title}}</h3>
+  <h3>Year: {{m.Year}}</h3>
+  <h3>imdbID: {{m.imdbID}}</h3>
+  <h3>Type: {{m.Type}}</h3>
+</div>
+</div>
+
